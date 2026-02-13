@@ -16,9 +16,9 @@
     --accent: #6c63ff;
     --accent2: #ff6b6b;
     --accent3: #43e97b;
+    --yellow: #f9a825;
     --text: #f0f0f8;
     --muted: #6b6b88;
-    --card-shadow: 0 4px 24px rgba(0,0,0,0.4);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -33,465 +33,266 @@
 
   /* === ШАПКА === */
   .header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(15,15,20,0.92);
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(15,15,20,0.94);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
     padding: 14px 20px 10px;
   }
   .header-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: flex; align-items: center; justify-content: space-between;
     margin-bottom: 12px;
   }
   .logo {
     font-family: 'Unbounded', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
+    font-size: 18px; font-weight: 700; letter-spacing: -0.5px;
     background: linear-gradient(135deg, #6c63ff, #a78bfa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   }
   .user-badge {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    display: flex; align-items: center; gap: 8px;
     background: var(--surface2);
     padding: 6px 12px 6px 8px;
-    border-radius: 20px;
-    font-size: 12px;
-    color: var(--muted);
+    border-radius: 20px; font-size: 12px; color: var(--muted);
   }
   .user-avatar {
-    width: 24px; height: 24px;
-    border-radius: 50%;
+    width: 24px; height: 24px; border-radius: 50%;
     background: linear-gradient(135deg, #6c63ff, #a78bfa);
     display: flex; align-items: center; justify-content: center;
     font-size: 11px; font-weight: 700; color: white;
   }
 
-  /* === НАВИГАЦИЯ === */
+  /* === ФИЛЬТРЫ === */
   .nav {
-    display: flex;
-    gap: 6px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    padding: 2px 0;
+    display: flex; gap: 6px;
+    overflow-x: auto; scrollbar-width: none; padding: 2px 0;
   }
   .nav::-webkit-scrollbar { display: none; }
   .nav-btn {
-    flex-shrink: 0;
-    padding: 7px 14px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--muted);
-    font-family: 'Manrope', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    white-space: nowrap;
+    flex-shrink: 0; padding: 7px 14px; border-radius: 20px;
+    border: 1px solid var(--border); background: transparent;
+    color: var(--muted); font-family: 'Manrope', sans-serif;
+    font-size: 12px; font-weight: 600; cursor: pointer;
+    transition: all 0.2s; white-space: nowrap;
   }
   .nav-btn.active {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: white;
-    box-shadow: 0 0 20px rgba(108,99,255,0.4);
+    background: var(--accent); border-color: var(--accent); color: white;
+    box-shadow: 0 0 20px rgba(108,99,255,0.35);
   }
 
   /* === КОНТЕНТ === */
-  .content { padding: 16px 16px 100px; }
+  .content { padding: 14px 16px 100px; }
 
-  /* === СЕКЦИЯ СТАТИСТИКИ === */
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  .stat-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 14px 10px;
-    text-align: center;
-    animation: fadeUp 0.4s ease both;
-  }
-  .stat-card:nth-child(1) { animation-delay: 0.05s; }
-  .stat-card:nth-child(2) { animation-delay: 0.1s; }
-  .stat-card:nth-child(3) { animation-delay: 0.15s; }
-  .stat-num {
-    font-family: 'Unbounded', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-  .stat-label { font-size: 10px; color: var(--muted); line-height: 1.3; }
-  .stat-card.hw .stat-num { color: var(--accent); }
-  .stat-card.exams .stat-num { color: var(--accent2); }
-  .stat-card.done .stat-num { color: var(--accent3); }
-
-  /* === КАРТОЧКИ === */
   .section-title {
     font-family: 'Unbounded', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 10px;
-    margin-top: 4px;
+    font-size: 11px; font-weight: 600; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 10px; margin-top: 4px;
   }
 
+  /* === КАРТОЧКИ === */
   .card {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 16px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    animation: fadeUp 0.4s ease both;
-    position: relative;
-    overflow: hidden;
+    border-radius: 18px; padding: 16px; margin-bottom: 10px;
+    cursor: pointer; transition: all 0.18s ease;
+    animation: fadeUp 0.35s ease both;
+    position: relative; overflow: hidden;
   }
   .card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px; height: 100%;
-    border-radius: 2px 0 0 2px;
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%; border-radius: 2px 0 0 2px;
   }
-  .card.hw::before { background: var(--accent); }
-  .card.exam::before { background: var(--accent2); }
-  .card.credit::before { background: var(--accent3); }
-  .card.lecture::before { background: #f9a825; }
-
-  .card:active { transform: scale(0.98); background: var(--surface2); }
+  .card.hw::before    { background: var(--accent); }
+  .card.exam::before  { background: var(--accent2); }
+  .card.credit::before{ background: var(--accent3); }
+  .card.lecture::before{ background: var(--yellow); }
+  .card:active { transform: scale(0.985); background: var(--surface2); }
 
   .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 8px;
+    display: flex; justify-content: space-between;
+    align-items: flex-start; gap: 10px; margin-bottom: 8px;
   }
   .card-title {
     font-family: 'Unbounded', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 1.35;
-    flex: 1;
+    font-size: 13px; font-weight: 600; line-height: 1.35; flex: 1;
   }
   .badge {
-    flex-shrink: 0;
-    padding: 3px 8px;
-    border-radius: 8px;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
+    flex-shrink: 0; padding: 3px 9px; border-radius: 8px;
+    font-size: 10px; font-weight: 700;
   }
-  .badge.urgent { background: rgba(255,107,107,0.2); color: var(--accent2); }
-  .badge.soon { background: rgba(249,168,37,0.2); color: #f9a825; }
-  .badge.ok { background: rgba(67,233,123,0.2); color: var(--accent3); }
-  .badge.done { background: rgba(67,233,123,0.1); color: var(--accent3); }
-  .badge.overdue { background: rgba(255,107,107,0.1); color: var(--muted); text-decoration: line-through; }
+  .badge.urgent { background: rgba(255,107,107,0.18); color: var(--accent2); }
+  .badge.soon   { background: rgba(249,168,37,0.18);  color: var(--yellow); }
+  .badge.ok     { background: rgba(67,233,123,0.18);  color: var(--accent3); }
+  .badge.done   { background: rgba(67,233,123,0.12);  color: var(--accent3); }
+  .badge.overdue{ background: rgba(107,107,136,0.15); color: var(--muted); }
 
   .card-meta {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
   }
-  .meta-item {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 11px;
-    color: var(--muted);
-  }
-  .meta-item svg { opacity: 0.6; }
-
-  .progress-bar {
-    height: 3px;
-    background: var(--border);
-    border-radius: 2px;
-    margin-top: 10px;
-    overflow: hidden;
-  }
-  .progress-fill {
-    height: 100%;
-    border-radius: 2px;
-    transition: width 0.8s cubic-bezier(0.34,1.56,0.64,1);
-  }
+  .meta-item { display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--muted); }
 
   /* === ДЕТАЛЬНАЯ СТРАНИЦА === */
   .detail-view {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: var(--bg);
-    z-index: 200;
-    overflow-y: auto;
-    animation: slideUp 0.3s ease;
+    display: none; position: fixed; inset: 0;
+    background: var(--bg); z-index: 200;
+    overflow-y: auto; animation: slideUp 0.28s ease;
   }
   .detail-view.open { display: block; }
 
   .detail-header {
-    position: sticky;
-    top: 0;
-    background: rgba(15,15,20,0.95);
+    position: sticky; top: 0;
+    background: rgba(15,15,20,0.96);
     backdrop-filter: blur(20px);
-    padding: 16px 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    border-bottom: 1px solid var(--border);
+    padding: 16px 20px; display: flex; align-items: center;
+    gap: 12px; border-bottom: 1px solid var(--border);
   }
   .back-btn {
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    background: var(--surface2);
-    border: 1px solid var(--border);
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--surface2); border: 1px solid var(--border);
     display: flex; align-items: center; justify-content: center;
-    cursor: pointer; color: var(--text);
-    font-size: 16px; flex-shrink: 0;
-    transition: background 0.15s;
+    cursor: pointer; color: var(--text); font-size: 20px;
+    flex-shrink: 0; transition: background 0.15s; line-height: 1;
   }
   .back-btn:active { background: var(--accent); }
   .detail-title-wrap { flex: 1; }
   .detail-type { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
-  .detail-name {
-    font-family: 'Unbounded', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 1.3;
-  }
+  .detail-name { font-family: 'Unbounded', sans-serif; font-size: 14px; font-weight: 700; line-height: 1.3; }
 
-  .detail-body { padding: 20px; }
+  .detail-body { padding: 18px 16px; }
 
   .info-block {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 12px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 4px 16px; margin-bottom: 12px;
   }
   .info-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--border);
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 12px 0; border-bottom: 1px solid var(--border);
   }
-  .info-row:last-child { border-bottom: none; padding-bottom: 0; }
-  .info-row:first-child { padding-top: 0; }
+  .info-row:last-child { border-bottom: none; }
   .info-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
   .info-content { flex: 1; }
-  .info-label { font-size: 10px; color: var(--muted); margin-bottom: 2px; }
-  .info-value { font-size: 13px; color: var(--text); line-height: 1.5; }
+  .info-label { font-size: 10px; color: var(--muted); margin-bottom: 3px; }
+  .info-value { font-size: 13px; color: var(--text); line-height: 1.6; }
 
-  .countdown-big {
-    background: linear-gradient(135deg, rgba(108,99,255,0.15), rgba(167,139,250,0.1));
-    border: 1px solid rgba(108,99,255,0.3);
-    border-radius: 16px;
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 12px;
+  .countdown-block {
+    background: linear-gradient(135deg, rgba(108,99,255,0.13), rgba(167,139,250,0.08));
+    border: 1px solid rgba(108,99,255,0.25);
+    border-radius: 16px; padding: 18px 20px;
+    text-align: center; margin-bottom: 12px;
   }
-  .countdown-label { font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+  .countdown-label { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
   .countdown-value {
-    font-family: 'Unbounded', sans-serif;
-    font-size: 26px;
-    font-weight: 700;
+    font-family: 'Unbounded', sans-serif; font-size: 24px; font-weight: 700;
     background: linear-gradient(135deg, #a78bfa, #6c63ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   }
-  .countdown-days { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .countdown-date { font-size: 12px; color: var(--muted); margin-top: 5px; }
 
   .done-btn {
-    width: 100%;
-    padding: 16px;
-    border-radius: 16px;
-    border: none;
-    font-family: 'Unbounded', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-top: 8px;
+    width: 100%; padding: 15px; border-radius: 14px; border: none;
+    font-family: 'Unbounded', sans-serif; font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; margin-top: 6px;
   }
-  .done-btn.mark { background: var(--accent); color: white; }
-  .done-btn.mark:hover { box-shadow: 0 0 30px rgba(108,99,255,0.5); }
+  .done-btn.mark   { background: var(--accent); color: white; box-shadow: 0 4px 20px rgba(108,99,255,0.35); }
   .done-btn.unmark { background: var(--surface2); color: var(--muted); border: 1px solid var(--border); }
+  .done-btn:active { transform: scale(0.98); }
 
   /* === ЧЕКЛИСТ === */
   .checklist { list-style: none; }
   .checklist-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 10px 12px;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: background 0.15s;
-    margin-bottom: 4px;
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 12px; border-radius: 12px; cursor: pointer;
+    transition: background 0.15s; margin-bottom: 2px;
   }
   .checklist-item:active { background: var(--surface2); }
   .check-box {
-    width: 20px; height: 20px;
-    border-radius: 6px;
-    border: 2px solid var(--border);
-    flex-shrink: 0;
+    width: 20px; height: 20px; border-radius: 6px;
+    border: 2px solid rgba(255,255,255,0.15); flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
-    transition: all 0.2s;
-    margin-top: 1px;
+    transition: all 0.2s; margin-top: 1px;
   }
   .checklist-item.checked .check-box {
-    background: var(--accent3);
-    border-color: var(--accent3);
+    background: var(--accent3); border-color: var(--accent3);
   }
-  .check-text {
-    font-size: 13px;
-    line-height: 1.5;
-    color: var(--text);
-    transition: color 0.2s;
-  }
+  .check-text { font-size: 13px; line-height: 1.5; transition: color 0.2s; }
   .checklist-item.checked .check-text { color: var(--muted); text-decoration: line-through; }
-
-  .checklist-progress {
-    background: var(--surface2);
-    border-radius: 12px;
-    padding: 12px 16px;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .checklist-progress-bar {
-    flex: 1;
-    height: 6px;
-    background: var(--border);
-    border-radius: 3px;
-    margin: 0 12px;
-    overflow: hidden;
-  }
-  .checklist-progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent), var(--accent3));
-    border-radius: 3px;
-    transition: width 0.4s ease;
-  }
-  .progress-count { font-size: 12px; color: var(--muted); white-space: nowrap; }
 
   /* === ПУСТОЙ ЭКРАН === */
   .empty-state {
-    text-align: center;
-    padding: 60px 20px;
-    animation: fadeUp 0.4s ease;
+    text-align: center; padding: 60px 20px; animation: fadeUp 0.4s ease;
   }
-  .empty-emoji { font-size: 48px; margin-bottom: 16px; }
-  .empty-title {
-    font-family: 'Unbounded', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
+  .empty-emoji { font-size: 44px; margin-bottom: 14px; }
+  .empty-title { font-family: 'Unbounded', sans-serif; font-size: 15px; font-weight: 600; margin-bottom: 8px; }
   .empty-sub { font-size: 13px; color: var(--muted); }
+
+  /* === ТАББАР === */
+  .tabbar {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: rgba(15,15,20,0.97);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid var(--border);
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    padding: 8px 0 20px; z-index: 100;
+  }
+  .tab-item {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 3px; padding: 6px 4px; cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tab-icon { font-size: 20px; transition: transform 0.2s; }
+  .tab-item.active .tab-icon { transform: scale(1.15); filter: drop-shadow(0 0 6px rgba(108,99,255,0.5)); }
+  .tab-label { font-size: 9px; font-weight: 600; color: var(--muted); transition: color 0.2s; }
+  .tab-item.active .tab-label { color: var(--accent); }
 
   /* === АНИМАЦИИ === */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
   @keyframes slideUp {
-    from { transform: translateY(30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    from { transform: translateY(24px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
   }
 
-  /* === ТАББАР (дно) === */
-  .tabbar {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: rgba(15,15,20,0.96);
-    backdrop-filter: blur(20px);
-    border-top: 1px solid var(--border);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 8px 0 20px;
-    z-index: 100;
-  }
-  .tab-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3px;
-    padding: 6px 4px;
-    cursor: pointer;
-    transition: all 0.2s;
-    border-radius: 12px;
-    margin: 0 4px;
-  }
-  .tab-icon { font-size: 20px; transition: transform 0.2s; }
-  .tab-item.active .tab-icon { transform: scale(1.15); }
-  .tab-label { font-size: 9px; font-weight: 600; color: var(--muted); transition: color 0.2s; }
-  .tab-item.active .tab-label { color: var(--accent); }
-  .tab-item.active .tab-icon { filter: drop-shadow(0 0 6px rgba(108,99,255,0.6)); }
-
-  /* === СКРОЛЛ === */
   ::-webkit-scrollbar { width: 0; }
 </style>
 </head>
 <body>
 
-<!-- ШАПКА -->
 <div class="header">
   <div class="header-top">
     <div class="logo">БИБ-417</div>
     <div class="user-badge">
-      <div class="user-avatar" id="userInitial">?</div>
+      <div class="user-avatar" id="userInitial">С</div>
       <span id="userName">Студент</span>
     </div>
   </div>
   <div class="nav" id="filterNav"></div>
 </div>
 
-<!-- ОСНОВНОЙ КОНТЕНТ -->
 <div class="content" id="mainContent">
-  <div style="text-align:center;padding:60px 0;">
-    <div style="font-size:32px;margin-bottom:12px;">⚡️</div>
-    <div style="font-family:'Unbounded',sans-serif;font-size:14px;">Загрузка...</div>
+  <div style="text-align:center;padding:60px 0">
+    <div style="font-size:30px;margin-bottom:10px">⚡️</div>
+    <div style="font-family:'Unbounded',sans-serif;font-size:13px;color:var(--muted)">Загрузка...</div>
   </div>
 </div>
 
-<!-- ТАББАР -->
 <div class="tabbar">
   <div class="tab-item active" onclick="switchTab('hw')">
-    <span class="tab-icon">📝</span>
-    <span class="tab-label">ДЗ</span>
+    <span class="tab-icon">📝</span><span class="tab-label">ДЗ</span>
   </div>
   <div class="tab-item" onclick="switchTab('credits')">
-    <span class="tab-icon">✅</span>
-    <span class="tab-label">Зачёты</span>
+    <span class="tab-icon">✅</span><span class="tab-label">Зачёты</span>
   </div>
   <div class="tab-item" onclick="switchTab('exams')">
-    <span class="tab-icon">📚</span>
-    <span class="tab-label">Экзамены</span>
+    <span class="tab-icon">📚</span><span class="tab-label">Экзамены</span>
   </div>
   <div class="tab-item" onclick="switchTab('lectures')">
-    <span class="tab-icon">📖</span>
-    <span class="tab-label">Лекции</span>
+    <span class="tab-icon">📖</span><span class="tab-label">Лекции</span>
   </div>
 </div>
 
-<!-- ДЕТАЛЬНАЯ СТРАНИЦА -->
 <div class="detail-view" id="detailView">
   <div class="detail-header">
     <div class="back-btn" onclick="closeDetail()">‹</div>
@@ -504,193 +305,165 @@
 </div>
 
 <script>
-// ===== ИНИЦИАЛИЗАЦИЯ TELEGRAM =====
+// =====================================================
+// TELEGRAM MINI APP — БИБ-417
+//
+// Как подключить реальные данные из бота:
+//   1. Задеплойте бота на сервер (например, VPS или Railway)
+//   2. Добавьте в bot.py эндпоинты FastAPI/aiohttp:
+//      GET /api/homework  → список ДЗ
+//      GET /api/credits   → зачёты
+//      GET /api/exams     → экзамены
+//      GET /api/lectures  → лекции
+//   3. Замените DATA ниже на fetch() запросы к вашему API
+//   4. Проверяйте подлинность через tg.initData на сервере
+//
+// Пока что используются демо-данные для проверки интерфейса.
+// =====================================================
+
 const tg = window.Telegram?.WebApp;
-if (tg) {
-  tg.expand();
-  tg.setHeaderColor('#0f0f14');
-  tg.setBackgroundColor('#0f0f14');
-}
+if (tg) { tg.expand(); tg.setHeaderColor('#0f0f14'); tg.setBackgroundColor('#0f0f14'); }
 
-// ===== ДАННЫЕ (заглушки — бот передаст реальные через initData) =====
-let DATA = {
-  user: { name: "Студент", initials: "С" },
-  homework: [
-    { id: 1, subject: "Математический анализ", description: "Решить задачи №15-20 из задачника Демидовича", deadline: "2026-02-20T23:59:00", done: false, files: ["zadachi.pdf"] },
-    { id: 2, subject: "Программирование", description: "Написать алгоритм сортировки пузырьком на Python", deadline: "2026-02-16T18:00:00", done: false, files: [] },
-    { id: 3, subject: "Базы данных", description: "ER-диаграмма для задания из лекции 4", deadline: "2026-02-15T23:59:00", done: true, files: ["er_template.docx"] },
-    { id: 4, subject: "Дискретная математика", description: "Контрольная работа №2: графы и деревья", deadline: "2026-02-14T12:00:00", done: false, files: [] },
-  ],
-  credits: [
-    { id: 1, subject: "Физическая культура", teacher: "Козлов А.В.", date: "2026-05-20T10:00:00", location: "Спортзал", auto_req: "Посещаемость не менее 80%", questions: ["Правила игры в волейбол", "Техника бега", "Разминка перед тренировкой"] },
-    { id: 2, subject: "Иностранный язык", teacher: "Петрова Н.А.", date: "2026-05-15T14:00:00", location: "Ауд. 301", auto_req: "Выполнение всех практических работ", questions: ["Present Perfect vs Past Simple", "Модальные глаголы", "Профессиональная лексика IT", "Reading comprehension", "Listening tasks"] },
-  ],
-  exams: [
-    { id: 1, subject: "Математический анализ", teacher: "Иванов И.И.", exam_date: "2026-06-10T09:00:00", location: "Ауд. 215", consult_date: "2026-06-08T14:00:00", questions: ["Пределы функций", "Производные", "Интегралы", "Ряды", "Дифференциальные уравнения", "Функции многих переменных"] },
-    { id: 2, subject: "Базы данных", teacher: "Сидорова О.П.", exam_date: "2026-06-15T11:00:00", location: "Ауд. 112", consult_date: "2026-06-13T13:00:00", questions: ["ER-модели", "SQL запросы", "Нормализация", "Транзакции", "Индексы"] },
-  ],
-  lectures: [
-    { id: 1, subject: "Математический анализ", lectures: [
-      { id: 1, title: "Пределы функций", date: "2026-09-05", description: "Основные понятия: предел функции, определение по Коши и Гейне..." },
-      { id: 2, title: "Производные", date: "2026-09-12", description: "Понятие производной, правила дифференцирования..." },
-      { id: 3, title: "Интегралы", date: "2026-09-19", description: "Неопределённый интеграл, таблица интегралов..." },
-    ]},
-    { id: 2, subject: "Программирование", lectures: [
-      { id: 4, title: "Введение в Python", date: "2026-09-05", description: "Синтаксис Python, типы данных, операторы..." },
-      { id: 5, title: "Функции и модули", date: "2026-09-12", description: "Определение функций, аргументы, возвращаемые значения..." },
-    ]},
-  ],
-  progress: {} // user progress for checklists
-};
-
-// Попытка получить данные из Telegram
+// Имя пользователя из Telegram
 try {
-  const initDataParsed = new URLSearchParams(tg?.initData || '');
-  const userStr = initDataParsed.get('user');
-  if (userStr) {
-    const u = JSON.parse(userStr);
-    DATA.user.name = u.first_name || "Студент";
-    DATA.user.initials = (u.first_name || "С").charAt(0).toUpperCase();
+  const u = JSON.parse(new URLSearchParams(tg?.initData || '').get('user') || '{}');
+  if (u.first_name) {
+    document.getElementById('userName').textContent = u.first_name;
+    document.getElementById('userInitial').textContent = u.first_name[0].toUpperCase();
   }
 } catch(e) {}
+
+// ===== ДЕМО-ДАННЫЕ (замените на fetch к вашему API) =====
+const DATA = {
+  homework: [
+    { id:1, subject:"Математический анализ", description:"Решить задачи №15-20 из задачника Демидовича", deadline:"2026-02-20T23:59:00", done:false, files:["zadachi.pdf"] },
+    { id:2, subject:"Программирование",       description:"Написать алгоритм сортировки пузырьком на Python", deadline:"2026-02-16T18:00:00", done:false, files:[] },
+    { id:3, subject:"Базы данных",            description:"ER-диаграмма для задания из лекции 4", deadline:"2026-02-15T23:59:00", done:true,  files:["er_template.docx"] },
+    { id:4, subject:"Дискретная математика",  description:"Контрольная работа №2: графы и деревья", deadline:"2026-02-14T12:00:00", done:false, files:[] },
+  ],
+  credits: [
+    { id:1, subject:"Физическая культура", teacher:"Козлов А.В.", date:"2026-05-20T10:00:00", location:"Спортзал", auto_req:"Посещаемость не менее 80%", questions:["Правила игры в волейбол","Техника бега","Разминка"] },
+    { id:2, subject:"Иностранный язык",    teacher:"Петрова Н.А.", date:"2026-05-15T14:00:00", location:"Ауд. 301",  auto_req:"Все практические работы сданы", questions:["Present Perfect vs Past Simple","Модальные глаголы","Профессиональная лексика IT","Listening tasks"] },
+  ],
+  exams: [
+    { id:1, subject:"Математический анализ", teacher:"Иванов И.И.", exam_date:"2026-06-10T09:00:00", location:"Ауд. 215", consult_date:"2026-06-08T14:00:00", questions:["Пределы функций","Производные","Интегралы","Ряды","Дифференциальные уравнения"] },
+    { id:2, subject:"Базы данных",           teacher:"Сидорова О.П.", exam_date:"2026-06-15T11:00:00", location:"Ауд. 112", consult_date:"2026-06-13T13:00:00", questions:["ER-модели","SQL запросы","Нормализация","Транзакции","Индексы"] },
+  ],
+  lectures: [
+    { id:1, subject:"Математический анализ", items:[
+      { id:1, title:"Пределы функций",   date:"05.09.2025", description:"Основные понятия: предел функции, определение по Коши и Гейне, свойства пределов." },
+      { id:2, title:"Производные",       date:"12.09.2025", description:"Понятие производной, правила дифференцирования, производные элементарных функций." },
+      { id:3, title:"Интегралы",         date:"19.09.2025", description:"Неопределённый интеграл, таблица интегралов, методы интегрирования." },
+    ]},
+    { id:2, subject:"Программирование", items:[
+      { id:4, title:"Введение в Python", date:"05.09.2025", description:"Синтаксис Python, типы данных, переменные, операторы ввода/вывода." },
+      { id:5, title:"Функции и модули",  date:"12.09.2025", description:"Определение функций, аргументы, возвращаемые значения, import." },
+    ]},
+  ],
+};
 
 // ===== СОСТОЯНИЕ =====
 let currentTab = 'hw';
 let hwFilter = 'active';
 let doneHw = new Set(DATA.homework.filter(h => h.done).map(h => h.id));
-let progress = {}; // { "credit_1": Set([0,1,2]), "exam_1": Set([0]) }
+let checkProgress = {}; // { "credit_1": Set, "exam_1": Set }
+let selectedSubjectId = null;
 
-// ===== ИНИЦИАЛИЗАЦИЯ UI =====
-document.getElementById('userInitial').textContent = DATA.user.initials;
-document.getElementById('userName').textContent = DATA.user.name;
+// ===== УТИЛИТЫ =====
+function timeLeft(dateStr) {
+  const diff = new Date(dateStr) - new Date();
+  if (diff < 0) return { label:"Просрочено", type:"overdue" };
+  const d = Math.floor(diff/86400000), h = Math.floor((diff%86400000)/3600000);
+  const m = Math.floor((diff%3600000)/60000);
+  if (d > 7)  return { label:`${d} дней`, type:"ok" };
+  if (d >= 3) return { label:`${d} дн. ${h} ч.`, type:"soon" };
+  if (d >= 1) return { label:`${d} дн. ${h} ч.`, type:"urgent" };
+  if (h >= 1) return { label:`${h} ч. ${m} мин.`, type:"urgent" };
+  return { label:`${m} мин.!`, type:"urgent" };
+}
 
+function fmtDate(s, noTime=false) {
+  if (!s) return "—";
+  const d = new Date(s);
+  const date = d.toLocaleDateString('ru-RU', {day:'2-digit',month:'2-digit',year:'numeric'});
+  if (noTime) return date;
+  const time = d.toLocaleTimeString('ru-RU', {hour:'2-digit',minute:'2-digit'});
+  return `${date} ${time}`;
+}
+
+function haptic() { tg?.HapticFeedback?.impactOccurred('light'); }
+
+function setNav(items, active, fn) {
+  document.getElementById('filterNav').innerHTML = items.map(it =>
+    `<button class="nav-btn ${it.k===active?'active':''}" onclick="${fn}('${it.k}')">${it.l}</button>`
+  ).join('');
+}
+
+// ===== ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК =====
 function switchTab(tab) {
-  currentTab = tab;
-  document.querySelectorAll('.tab-item').forEach((el, i) => {
-    const tabs = ['hw','credits','exams','lectures'];
-    el.classList.toggle('active', tabs[i] === tab);
+  currentTab = tab; selectedSubjectId = null;
+  document.querySelectorAll('.tab-item').forEach((el,i) => {
+    el.classList.toggle('active', ['hw','credits','exams','lectures'][i] === tab);
   });
   renderContent();
 }
 
 function renderContent() {
-  switch(currentTab) {
-    case 'hw':      renderHomework(); break;
-    case 'credits': renderCredits();  break;
-    case 'exams':   renderExams();    break;
-    case 'lectures':renderLectures(); break;
-  }
+  const fns = { hw:renderHW, credits:renderCredits, exams:renderExams, lectures:renderLectures };
+  fns[currentTab]?.();
 }
 
-// ===== УТИЛИТЫ =====
-function timeLeft(dateStr) {
-  const now = new Date();
-  const dt = new Date(dateStr);
-  const diff = dt - now;
-  if (diff < 0) return { label: "Просрочено", type: "overdue" };
-  const days = Math.floor(diff / 86400000);
-  const hours = Math.floor((diff % 86400000) / 3600000);
-  const mins = Math.floor((diff % 3600000) / 60000);
-  if (days > 7)  return { label: `${days} дней`, type: "ok" };
-  if (days >= 3) return { label: `${days} дн. ${hours} ч.`, type: "soon" };
-  if (days >= 1) return { label: `${days} дн. ${hours} ч.`, type: "urgent" };
-  if (hours >= 1) return { label: `${hours} ч. ${mins} мин.`, type: "urgent" };
-  return { label: `${mins} мин.!`, type: "urgent" };
-}
-
-function formatDate(dateStr, withTime = true) {
-  if (!dateStr) return "—";
-  const dt = new Date(dateStr);
-  const d = dt.toLocaleDateString('ru-RU', { day:'2-digit', month:'2-digit', year:'numeric' });
-  if (!withTime) return d;
-  const t = dt.toLocaleTimeString('ru-RU', { hour:'2-digit', minute:'2-digit' });
-  return `${d} ${t}`;
-}
-
-function setNav(items, activeKey, onSelect) {
-  const nav = document.getElementById('filterNav');
-  nav.innerHTML = items.map(it => 
-    `<button class="nav-btn ${it.key === activeKey ? 'active' : ''}" onclick="(${onSelect.toString()})('${it.key}')">${it.label}</button>`
-  ).join('');
-}
-
-// ===== ДЗ =====
-function renderHomework() {
+// ===================== ДЗ =====================
+function renderHW() {
   setNav([
-    { key: 'active', label: '✅ Активные' },
-    { key: 'all', label: '📋 Все' },
-    { key: 'overdue', label: '⏰ Просрочено' },
-    { key: 'done', label: '✔️ Выполнено' },
-  ], hwFilter, (f) => { hwFilter = f; renderHomework(); });
+    {k:'active',l:'✅ Активные'},{k:'all',l:'📋 Все'},
+    {k:'overdue',l:'⏰ Просроченные'},{k:'done',l:'✔️ Выполненные'}
+  ], hwFilter, 'setHwFilter');
 
   const now = new Date();
-  let list = DATA.homework.filter(hw => {
-    const dl = new Date(hw.deadline);
-    const isDone = doneHw.has(hw.id);
-    if (hwFilter === 'active')  return !isDone && dl > now;
-    if (hwFilter === 'overdue') return !isDone && dl <= now;
-    if (hwFilter === 'done')    return isDone;
+  const list = DATA.homework.filter(hw => {
+    const dl = new Date(hw.deadline), isDone = doneHw.has(hw.id);
+    if (hwFilter==='active')  return !isDone && dl > now;
+    if (hwFilter==='overdue') return !isDone && dl <= now;
+    if (hwFilter==='done')    return isDone;
     return true;
   });
 
-  const doneCount = doneHw.size;
-  const total = DATA.homework.length;
-  const pct = total ? Math.round(doneCount / total * 100) : 0;
-
-  let html = `
-    <div class="stats-grid">
-      <div class="stat-card hw">
-        <div class="stat-num">${list.length}</div>
-        <div class="stat-label">заданий</div>
-      </div>
-      <div class="stat-card done">
-        <div class="stat-num">${doneCount}</div>
-        <div class="stat-label">выполнено</div>
-      </div>
-      <div class="stat-card exams">
-        <div class="stat-num">${pct}%</div>
-        <div class="stat-label">прогресс</div>
-      </div>
-    </div>`;
-
   if (!list.length) {
-    html += `<div class="empty-state"><div class="empty-emoji">🎉</div><div class="empty-title">Всё выполнено!</div><div class="empty-sub">Нет заданий в этой категории</div></div>`;
-  } else {
-    html += `<div class="section-title">Задания</div>`;
-    list.forEach((hw, i) => {
-      const tl = timeLeft(hw.deadline);
-      const isDone = doneHw.has(hw.id);
-      html += `
-        <div class="card hw" style="animation-delay:${i*0.05}s" onclick="openHwDetail(${hw.id})">
-          <div class="card-header">
-            <div class="card-title">${hw.subject}</div>
-            <span class="badge ${isDone ? 'done' : tl.type}">${isDone ? '✓ Сдано' : tl.label}</span>
-          </div>
-          <div class="card-meta">
-            <div class="meta-item">📅 ${formatDate(hw.deadline)}</div>
-            ${hw.files.length ? `<div class="meta-item">📎 ${hw.files.length} файл(а)</div>` : ''}
-          </div>
-          ${!isDone ? `<div class="progress-bar"><div class="progress-fill" style="width:${Math.max(5,100-Math.max(0,(new Date(hw.deadline)-new Date())/86400000*10))}%;background:${tl.type==='ok'?'var(--accent3)':tl.type==='soon'?'#f9a825':'var(--accent2)'}"></div></div>` : ''}
-        </div>`;
-    });
+    document.getElementById('mainContent').innerHTML =
+      `<div class="empty-state"><div class="empty-emoji">🎉</div><div class="empty-title">Нет заданий</div><div class="empty-sub">В этой категории пусто</div></div>`;
+    return;
   }
 
-  document.getElementById('mainContent').innerHTML = html;
+  document.getElementById('mainContent').innerHTML = list.map((hw, i) => {
+    const tl = timeLeft(hw.deadline), isDone = doneHw.has(hw.id);
+    return `
+      <div class="card hw" style="animation-delay:${i*0.05}s" onclick="openHW(${hw.id})">
+        <div class="card-header">
+          <div class="card-title">${hw.subject}</div>
+          <span class="badge ${isDone?'done':tl.type}">${isDone?'✓ Сдано':tl.label}</span>
+        </div>
+        <div class="card-meta">
+          <div class="meta-item">📅 ${fmtDate(hw.deadline)}</div>
+          ${hw.files.length ? `<div class="meta-item">📎 ${hw.files.length} файл(а)</div>` : ''}
+        </div>
+      </div>`;
+  }).join('');
 }
 
-function openHwDetail(id) {
+function setHwFilter(f) { hwFilter = f; renderHW(); }
+
+function openHW(id) {
   const hw = DATA.homework.find(h => h.id === id);
   if (!hw) return;
-  const isDone = doneHw.has(id);
-  const tl = timeLeft(hw.deadline);
+  const isDone = doneHw.has(id), tl = timeLeft(hw.deadline);
   document.getElementById('detailType').textContent = '📝 Домашнее задание';
   document.getElementById('detailName').textContent = hw.subject;
-
   document.getElementById('detailBody').innerHTML = `
-    <div class="countdown-big">
-      <div class="countdown-label">До сдачи осталось</div>
+    <div class="countdown-block">
+      <div class="countdown-label">До сдачи</div>
       <div class="countdown-value">${tl.label}</div>
-      <div class="countdown-days">Срок: ${formatDate(hw.deadline)}</div>
+      <div class="countdown-date">Срок: ${fmtDate(hw.deadline)}</div>
     </div>
     <div class="info-block">
       <div class="info-row">
@@ -703,273 +476,182 @@ function openHwDetail(id) {
       ${hw.files.length ? `<div class="info-row">
         <span class="info-icon">📎</span>
         <div class="info-content">
-          <div class="info-label">Прикреплённые файлы</div>
+          <div class="info-label">Файлы</div>
           <div class="info-value">${hw.files.join(', ')}</div>
         </div>
       </div>` : ''}
     </div>
-    <button class="done-btn ${isDone ? 'unmark' : 'mark'}" onclick="toggleHwDone(${id})">
+    <button class="done-btn ${isDone?'unmark':'mark'}" onclick="toggleHW(${id})">
       ${isDone ? '↩️ Отметить невыполненным' : '✅ Отметить выполненным'}
-    </button>
-  `;
+    </button>`;
   openDetail();
-  // Обновление таймера
-  let interval = setInterval(() => {
-    const tl2 = timeLeft(hw.deadline);
-    const cv = document.querySelector('.countdown-value');
-    if (cv) cv.textContent = tl2.label; else clearInterval(interval);
-  }, 30000);
 }
 
-function toggleHwDone(id) {
-  if (doneHw.has(id)) doneHw.delete(id);
-  else doneHw.add(id);
-  // Отправляем событие в бот
-  tg?.sendData(JSON.stringify({ action: 'toggle_hw', hw_id: id, done: doneHw.has(id) }));
-  openHwDetail(id);
-  if (tg) tg.HapticFeedback?.impactOccurred('light');
+function toggleHW(id) {
+  haptic();
+  if (doneHw.has(id)) doneHw.delete(id); else doneHw.add(id);
+  tg?.sendData?.(JSON.stringify({action:'toggle_hw', hw_id:id, done:doneHw.has(id)}));
+  openHW(id);
 }
 
-// ===== ЗАЧЁТЫ =====
+// ===================== ЗАЧЁТЫ =====================
 function renderCredits() {
   document.getElementById('filterNav').innerHTML = '';
-  let html = '';
   if (!DATA.credits.length) {
-    html = `<div class="empty-state"><div class="empty-emoji">✅</div><div class="empty-title">Зачётов нет</div><div class="empty-sub">Администратор ещё ничего не добавил</div></div>`;
-  } else {
-    html += `<div class="section-title">Зачёты</div>`;
-    DATA.credits.forEach((cr, i) => {
+    document.getElementById('mainContent').innerHTML =
+      `<div class="empty-state"><div class="empty-emoji">✅</div><div class="empty-title">Зачётов нет</div><div class="empty-sub">Администратор ещё ничего не добавил</div></div>`;
+    return;
+  }
+  document.getElementById('mainContent').innerHTML =
+    `<div class="section-title">Зачёты</div>` +
+    DATA.credits.map((cr, i) => {
       const tl = timeLeft(cr.date);
-      html += `
-        <div class="card credit" style="animation-delay:${i*0.06}s" onclick="openCreditDetail(${cr.id})">
+      return `
+        <div class="card credit" style="animation-delay:${i*0.06}s" onclick="openCredit(${cr.id})">
           <div class="card-header">
             <div class="card-title">${cr.subject}</div>
             <span class="badge ${tl.type}">${tl.label}</span>
           </div>
           <div class="card-meta">
             <div class="meta-item">👤 ${cr.teacher}</div>
-            <div class="meta-item">📅 ${formatDate(cr.date)}</div>
+            <div class="meta-item">📅 ${fmtDate(cr.date)}</div>
           </div>
-          <div class="card-meta" style="margin-top:6px">
-            <div class="meta-item">📋 ${cr.questions.length} вопросов</div>
+          <div class="card-meta" style="margin-top:5px">
             <div class="meta-item">📍 ${cr.location}</div>
+            <div class="meta-item">📋 ${cr.questions.length} вопросов</div>
           </div>
         </div>`;
-    });
-  }
-  document.getElementById('mainContent').innerHTML = html;
+    }).join('');
 }
 
-function openCreditDetail(id) {
+function openCredit(id) {
   const cr = DATA.credits.find(c => c.id === id);
   if (!cr) return;
   const key = `credit_${id}`;
-  if (!progress[key]) progress[key] = new Set();
-  const done = progress[key].size;
-
+  if (!checkProgress[key]) checkProgress[key] = new Set();
   document.getElementById('detailType').textContent = '✅ Зачёт';
   document.getElementById('detailName').textContent = cr.subject;
-  renderCreditDetailBody(cr);
-  openDetail();
-}
-
-function renderCreditDetailBody(cr) {
-  const key = `credit_${cr.id}`;
-  if (!progress[key]) progress[key] = new Set();
-  const done = progress[key].size;
-  const total = cr.questions.length;
-
   document.getElementById('detailBody').innerHTML = `
     <div class="info-block">
       <div class="info-row"><span class="info-icon">👤</span><div class="info-content"><div class="info-label">Преподаватель</div><div class="info-value">${cr.teacher}</div></div></div>
-      <div class="info-row"><span class="info-icon">📅</span><div class="info-content"><div class="info-label">Дата зачёта</div><div class="info-value">${formatDate(cr.date)}</div></div></div>
+      <div class="info-row"><span class="info-icon">📅</span><div class="info-content"><div class="info-label">Дата зачёта</div><div class="info-value">${fmtDate(cr.date)}</div></div></div>
       <div class="info-row"><span class="info-icon">📍</span><div class="info-content"><div class="info-label">Аудитория</div><div class="info-value">${cr.location}</div></div></div>
       <div class="info-row"><span class="info-icon">🏆</span><div class="info-content"><div class="info-label">Требования для автомата</div><div class="info-value">${cr.auto_req}</div></div></div>
     </div>
     <div class="section-title">Вопросы к зачёту</div>
-    <div class="checklist-progress">
-      <span class="progress-count">0</span>
-      <div class="checklist-progress-bar"><div class="checklist-progress-fill" id="clFill_${cr.id}" style="width:0%"></div></div>
-      <span class="progress-count" id="clCount_${cr.id}">${done}/${total}</span>
-    </div>
-    <ul class="checklist" id="checklist_${cr.id}">
-      ${cr.questions.map((q, i) => `
-        <li class="checklist-item ${progress[`credit_${cr.id}`]?.has(i) ? 'checked' : ''}" onclick="toggleCheck('credit',${cr.id},${i})">
-          <div class="check-box">${progress[`credit_${cr.id}`]?.has(i) ? '<svg width="12" height="9" viewBox="0 0 12 9"><path d="M1 4l3.5 3.5L11 1" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg>' : ''}</div>
+    <ul class="checklist">
+      ${cr.questions.map((q,i) => `
+        <li class="checklist-item ${checkProgress[key].has(i)?'checked':''}" onclick="toggleCheck('credit',${id},${i})">
+          <div class="check-box">${checkProgress[key].has(i)?'<svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 3.5l2.5 2.5L9 1" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>':''}</div>
           <span class="check-text">${i+1}. ${q}</span>
         </li>`).join('')}
-    </ul>
-  `;
-  updateChecklistUI(`credit`, cr.id, total);
+    </ul>`;
+  openDetail();
 }
 
-// ===== ЭКЗАМЕНЫ =====
+// ===================== ЭКЗАМЕНЫ =====================
 function renderExams() {
   document.getElementById('filterNav').innerHTML = '';
-  let html = '';
   if (!DATA.exams.length) {
-    html = `<div class="empty-state"><div class="empty-emoji">📚</div><div class="empty-title">Экзаменов нет</div><div class="empty-sub">Администратор ещё ничего не добавил</div></div>`;
-  } else {
-    html += `<div class="section-title">Экзамены</div>`;
-    DATA.exams.forEach((ex, i) => {
+    document.getElementById('mainContent').innerHTML =
+      `<div class="empty-state"><div class="empty-emoji">📚</div><div class="empty-title">Экзаменов нет</div><div class="empty-sub">Администратор ещё ничего не добавил</div></div>`;
+    return;
+  }
+  document.getElementById('mainContent').innerHTML =
+    `<div class="section-title">Экзамены</div>` +
+    DATA.exams.map((ex, i) => {
       const tl = timeLeft(ex.exam_date);
-      html += `
-        <div class="card exam" style="animation-delay:${i*0.06}s" onclick="openExamDetail(${ex.id})">
+      return `
+        <div class="card exam" style="animation-delay:${i*0.06}s" onclick="openExam(${ex.id})">
           <div class="card-header">
             <div class="card-title">${ex.subject}</div>
             <span class="badge ${tl.type}">${tl.label}</span>
           </div>
           <div class="card-meta">
             <div class="meta-item">👤 ${ex.teacher}</div>
-            <div class="meta-item">📅 ${formatDate(ex.exam_date)}</div>
+            <div class="meta-item">📅 ${fmtDate(ex.exam_date)}</div>
           </div>
-          <div class="card-meta" style="margin-top:6px">
-            <div class="meta-item">📋 ${ex.questions.length} вопросов</div>
+          <div class="card-meta" style="margin-top:5px">
             <div class="meta-item">📍 ${ex.location}</div>
+            <div class="meta-item">📋 ${ex.questions.length} вопросов</div>
           </div>
         </div>`;
-    });
-  }
-  document.getElementById('mainContent').innerHTML = html;
+    }).join('');
 }
 
-function openExamDetail(id) {
+function openExam(id) {
   const ex = DATA.exams.find(e => e.id === id);
   if (!ex) return;
+  const key = `exam_${id}`, tl = timeLeft(ex.exam_date);
+  if (!checkProgress[key]) checkProgress[key] = new Set();
   document.getElementById('detailType').textContent = '📚 Экзамен';
   document.getElementById('detailName').textContent = ex.subject;
-  renderExamDetailBody(ex);
-  openDetail();
-}
-
-function renderExamDetailBody(ex) {
-  const key = `exam_${ex.id}`;
-  if (!progress[key]) progress[key] = new Set();
-  const done = progress[key].size;
-  const total = ex.questions.length;
-  const tl = timeLeft(ex.exam_date);
-
   document.getElementById('detailBody').innerHTML = `
-    <div class="countdown-big">
+    <div class="countdown-block">
       <div class="countdown-label">До экзамена</div>
       <div class="countdown-value">${tl.label}</div>
-      <div class="countdown-days">${formatDate(ex.exam_date)}</div>
+      <div class="countdown-date">${fmtDate(ex.exam_date)}</div>
     </div>
     <div class="info-block">
       <div class="info-row"><span class="info-icon">👤</span><div class="info-content"><div class="info-label">Преподаватель</div><div class="info-value">${ex.teacher}</div></div></div>
       <div class="info-row"><span class="info-icon">📍</span><div class="info-content"><div class="info-label">Аудитория</div><div class="info-value">${ex.location}</div></div></div>
-      ${ex.consult_date ? `<div class="info-row"><span class="info-icon">🗓</span><div class="info-content"><div class="info-label">Консультация</div><div class="info-value">${formatDate(ex.consult_date)}</div></div></div>` : ''}
+      ${ex.consult_date ? `<div class="info-row"><span class="info-icon">🗓</span><div class="info-content"><div class="info-label">Консультация</div><div class="info-value">${fmtDate(ex.consult_date)}</div></div></div>` : ''}
     </div>
-    <div class="section-title">Список вопросов</div>
-    <div class="checklist-progress">
-      <span class="progress-count">0</span>
-      <div class="checklist-progress-bar"><div class="checklist-progress-fill" id="clFill_ex${ex.id}" style="width:0%"></div></div>
-      <span class="progress-count" id="clCount_ex${ex.id}">${done}/${total}</span>
-    </div>
-    <ul class="checklist" id="checklist_ex${ex.id}">
-      ${ex.questions.map((q, i) => `
-        <li class="checklist-item ${progress[key]?.has(i) ? 'checked' : ''}" onclick="toggleCheck('exam',${ex.id},${i})">
-          <div class="check-box">${progress[key]?.has(i) ? '<svg width="12" height="9" viewBox="0 0 12 9"><path d="M1 4l3.5 3.5L11 1" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg>' : ''}</div>
+    <div class="section-title">Вопросы к экзамену</div>
+    <ul class="checklist">
+      ${ex.questions.map((q,i) => `
+        <li class="checklist-item ${checkProgress[key].has(i)?'checked':''}" onclick="toggleCheck('exam',${id},${i})">
+          <div class="check-box">${checkProgress[key].has(i)?'<svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 3.5l2.5 2.5L9 1" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>':''}</div>
           <span class="check-text">${i+1}. ${q}</span>
         </li>`).join('')}
-    </ul>
-  `;
-  updateChecklistUI('exam', ex.id, total);
+    </ul>`;
+  openDetail();
 }
 
-// ===== ЧЕКЛИСТ =====
-function toggleCheck(type, id, qIndex) {
-  const key = `${type}_${id}`;
-  if (!progress[key]) progress[key] = new Set();
-  if (progress[key].has(qIndex)) progress[key].delete(qIndex);
-  else progress[key].add(qIndex);
-  if (tg) tg.HapticFeedback?.selectionChanged();
-
-  // Обновляем конкретный элемент
-  const prefix = type === 'exam' ? 'ex' : '';
-  const item = document.querySelector(`#checklist_${prefix}${id} li:nth-child(${qIndex+1})`);
-  if (item) {
-    const isChecked = progress[key].has(qIndex);
-    item.classList.toggle('checked', isChecked);
-    item.querySelector('.check-box').innerHTML = isChecked 
-      ? '<svg width="12" height="9" viewBox="0 0 12 9"><path d="M1 4l3.5 3.5L11 1" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg>' 
-      : '';
-  }
-
-  const total = type === 'credit' 
-    ? DATA.credits.find(c=>c.id===id)?.questions.length 
-    : DATA.exams.find(e=>e.id===id)?.questions.length;
-  updateChecklistUI(type, id, total || 0);
-}
-
-function updateChecklistUI(type, id, total) {
-  const key = `${type}_${id}`;
-  const prefix = type === 'exam' ? 'ex' : '';
-  const done = progress[key]?.size || 0;
-  const pct = total ? (done/total*100) : 0;
-  const fill = document.getElementById(`clFill_${prefix}${id}`);
-  const count = document.getElementById(`clCount_${prefix}${id}`);
-  if (fill) fill.style.width = pct + '%';
-  if (count) count.textContent = `${done}/${total}`;
-}
-
-// ===== ЛЕКЦИИ =====
-let selectedSubject = null;
+// ===================== ЛЕКЦИИ =====================
 function renderLectures() {
   document.getElementById('filterNav').innerHTML = '';
-  if (selectedSubject !== null) {
-    renderLectureList(selectedSubject);
+  if (selectedSubjectId !== null) { renderLectureList(selectedSubjectId); return; }
+  if (!DATA.lectures.length) {
+    document.getElementById('mainContent').innerHTML =
+      `<div class="empty-state"><div class="empty-emoji">📖</div><div class="empty-title">Лекций нет</div><div class="empty-sub">Материалы ещё не добавлены</div></div>`;
     return;
   }
-  let html = `<div class="section-title">Предметы</div>`;
-  if (!DATA.lectures.length) {
-    html = `<div class="empty-state"><div class="empty-emoji">📖</div><div class="empty-title">Предметов нет</div><div class="empty-sub">Лекции ещё не добавлены</div></div>`;
-  } else {
-    DATA.lectures.forEach((subj, i) => {
-      html += `
-        <div class="card lecture" style="animation-delay:${i*0.06}s" onclick="openSubject(${subj.id})">
-          <div class="card-header">
-            <div class="card-title">${subj.subject}</div>
-            <span class="badge soon">${subj.lectures.length} лекций</span>
-          </div>
-        </div>`;
-    });
-  }
-  document.getElementById('mainContent').innerHTML = html;
+  document.getElementById('mainContent').innerHTML =
+    `<div class="section-title">Предметы</div>` +
+    DATA.lectures.map((s,i) => `
+      <div class="card lecture" style="animation-delay:${i*0.06}s" onclick="openSubject(${s.id})">
+        <div class="card-header">
+          <div class="card-title">${s.subject}</div>
+          <span class="badge soon">${s.items.length} лекций</span>
+        </div>
+      </div>`).join('');
 }
 
-function openSubject(id) {
-  selectedSubject = id;
-  renderLectureList(id);
-}
+function openSubject(id) { selectedSubjectId = id; renderLectureList(id); }
 
 function renderLectureList(id) {
   const subj = DATA.lectures.find(s => s.id === id);
   if (!subj) return;
-  document.getElementById('filterNav').innerHTML = `
-    <button class="nav-btn active" onclick="selectedSubject=null;renderLectures()">← Назад</button>
-    <button class="nav-btn">${subj.subject}</button>
-  `;
-  let html = `<div class="section-title">${subj.subject}</div>`;
-  subj.lectures.forEach((lec, i) => {
-    html += `
-      <div class="card lecture" style="animation-delay:${i*0.06}s" onclick="openLecDetail(${id},${lec.id})">
+  document.getElementById('filterNav').innerHTML =
+    `<button class="nav-btn active" onclick="selectedSubjectId=null;renderLectures()">← Назад</button>
+     <button class="nav-btn" style="pointer-events:none;opacity:0.6">${subj.subject}</button>`;
+  document.getElementById('mainContent').innerHTML =
+    `<div class="section-title">${subj.subject}</div>` +
+    subj.items.map((lec,i) => `
+      <div class="card lecture" style="animation-delay:${i*0.06}s" onclick="openLecture(${id},${lec.id})">
         <div class="card-header">
           <div class="card-title">Лекция ${i+1}: ${lec.title}</div>
         </div>
-        <div class="card-meta">
-          <div class="meta-item">📅 ${lec.date}</div>
-        </div>
-      </div>`;
-  });
-  document.getElementById('mainContent').innerHTML = html;
+        <div class="card-meta"><div class="meta-item">📅 ${lec.date}</div></div>
+      </div>`).join('');
 }
 
-function openLecDetail(subjId, lecId) {
+function openLecture(subjId, lecId) {
   const subj = DATA.lectures.find(s => s.id === subjId);
-  const lec = subj?.lectures.find(l => l.id === lecId);
+  const lec = subj?.items.find(l => l.id === lecId);
   if (!lec) return;
-  const idx = subj.lectures.indexOf(lec);
+  const idx = subj.items.indexOf(lec);
   document.getElementById('detailType').textContent = `📖 ${subj.subject}`;
   document.getElementById('detailName').textContent = `Лекция ${idx+1}: ${lec.title}`;
   document.getElementById('detailBody').innerHTML = `
@@ -977,27 +659,42 @@ function openLecDetail(subjId, lecId) {
       <div class="info-row"><span class="info-icon">📅</span><div class="info-content"><div class="info-label">Дата</div><div class="info-value">${lec.date}</div></div></div>
     </div>
     <div class="section-title">Конспект</div>
-    <div class="info-block">
-      <div style="font-size:14px;line-height:1.7;color:var(--text)">${lec.description}</div>
-    </div>
-  `;
+    <div class="info-block" style="padding:16px">
+      <div style="font-size:13px;line-height:1.8;color:var(--text)">${lec.description}</div>
+    </div>`;
   openDetail();
 }
 
-// ===== ДЕТАЛЬНЫЙ ВИД =====
-function openDetail() {
-  document.getElementById('detailView').classList.add('open');
-  if (tg) tg.BackButton.show();
-  if (tg) tg.BackButton.onClick(closeDetail);
+// ===================== ЧЕК-ЛИСТ =====================
+function toggleCheck(type, id, idx) {
+  haptic();
+  const key = `${type}_${id}`;
+  if (!checkProgress[key]) checkProgress[key] = new Set();
+  if (checkProgress[key].has(idx)) checkProgress[key].delete(idx);
+  else checkProgress[key].add(idx);
+
+  const items = document.querySelectorAll('.checklist-item');
+  const item = items[idx];
+  if (!item) return;
+  const checked = checkProgress[key].has(idx);
+  item.classList.toggle('checked', checked);
+  item.querySelector('.check-box').innerHTML = checked
+    ? '<svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 3.5l2.5 2.5L9 1" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    : '';
 }
 
+// ===================== ДЕТАЛЬНЫЙ ВИД =====================
+function openDetail() {
+  document.getElementById('detailView').classList.add('open');
+  if (tg) { tg.BackButton.show(); tg.BackButton.onClick(closeDetail); }
+}
 function closeDetail() {
   document.getElementById('detailView').classList.remove('open');
   if (tg) tg.BackButton.hide();
   renderContent();
 }
 
-// ===== ИНИЦИАЛИЗАЦИЯ =====
+// Старт
 renderContent();
 </script>
 </body>
